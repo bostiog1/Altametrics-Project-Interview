@@ -59,6 +59,15 @@ Key functionalities include secure user login, a comprehensive dashboard with da
 
 - [Fake Store API](https://fakestoreapi.com): Used for product data (`GET /products`, `GET /products/:id`, `GET /products/categories`) and user authentication (`POST /auth/login`).
 
+## Project Structure
+
+- `src/features`: Contains Redux slices, components, and pages related to specific application features (e.g., `products`, `auth`).
+- `src/components`: Reusable UI components.
+- `src/hooks`: Custom React hooks for shared logic.
+- `src/api`: API service configurations.
+- `src/store`: Redux store configuration.
+- `src/types`: TypeScript type definitions.
+
 ## Setup Instructions
 
 Follow these steps to get the project up and running on your local machine.
@@ -93,12 +102,3 @@ Follow these steps to get the project up and running on your local machine.
     ```
 
 The application should now be running in your browser, typically at `http://localhost:5173/`.
-
-## Project Structure (Optional - brief explanation of key folders)
-
-- `src/features`: Contains Redux slices, components, and pages related to specific application features (e.g., `products`, `auth`).
-- `src/components`: Reusable UI components.
-- `src/hooks`: Custom React hooks for shared logic.
-- `src/api`: API service configurations.
-- `src/store`: Redux store configuration.
-- `src/types`: TypeScript type definitions.
