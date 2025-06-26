@@ -34,7 +34,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     : `${product.rating.count} reviews`;
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col p-4 transform transition duration-300 hover:scale-105 h-full">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden flex flex-col p-4 transform   hover:scale-105 h-full">
       <Link
         to={`/dashboard/products/${product.id}`}
         className="flex flex-col flex-grow text-center"
@@ -44,19 +44,17 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           alt={product.title}
           className="w-full h-48 object-contain mb-4"
         />
-        <h3 className="text-lg font-semibold text-gray-800 mb-2 min-h-[3rem]">
+        <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2 min-h-[3rem]">
           {product.title}
         </h3>
       </Link>
-
       <p className="text-xl font-bold text-blue-600 mb-2">
         ${product.price.toFixed(2)}
       </p>
-      <p className="text-sm text-gray-600 mb-4 capitalize">
+      <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 capitalize">
         {product.category}
       </p>
-
-      <div className="mt-auto pt-2 border-t border-gray-200 flex flex-col items-center">
+      <div className="mt-auto pt-2 border-t border-gray-200 dark:border-gray-700 flex flex-col items-center">
         {/* NEW: Display UserRating component */}
         <div className="mb-3 flex items-center space-x-2">
           <StarRating
@@ -67,7 +65,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <span className="text-yellow-600 font-bold text-sm">
             ({displayRating.toFixed(1)})
           </span>
-          <span className="text-gray-500 text-xs">({displayRatingCount})</span>
+          <span className="text-gray-500 dark:text-gray-400 text-xs">
+            ({displayRatingCount})
+          </span>
         </div>
       </div>
     </div>

@@ -8,6 +8,7 @@ import {
   FaBars, // For the burger menu
   FaSearch, // For the search icon (loupe)
 } from "react-icons/fa";
+import DarkMode from "../DarkMode";
 
 interface TopbarProps {
   toggleSidebar: () => void; // Function to open/close the sidebar
@@ -81,6 +82,7 @@ const Topbar: React.FC<TopbarProps> = ({ toggleSidebar, topbarBurgerRef }) => {
             <FaSearch className="text-gray-500 dark:text-gray-400" />
           </div>
         </div>
+        <DarkMode />
       </div>
 
       {/* Bottom Section: Sorting buttons */}
@@ -90,14 +92,14 @@ const Topbar: React.FC<TopbarProps> = ({ toggleSidebar, topbarBurgerRef }) => {
         <span className="text-md text-gray-700 dark:text-gray-300">
           Sort by:
         </span>
-        <button
+        {/* <button
           onClick={handleSortByPrice}
           className={`
-            py-2 px-4 rounded-md transition duration-200 shadow-sm font-semibold
+            py-1 px-4 rounded-md transition duration-200 shadow-sm font-semibold
             ${
               isPriceActive
                 ? "bg-blue-600 text-white hover:bg-blue-700"
-                : "bg-blue-500 text-white hover:bg-blue-600"
+                : "bg-blue-900 text-white hover:bg-blue-600"
             }`}
         >
           Price {isPriceActive && (sortBy === "priceAsc" ? "▲" : "▼")}
@@ -111,6 +113,34 @@ const Topbar: React.FC<TopbarProps> = ({ toggleSidebar, topbarBurgerRef }) => {
                 ? "bg-blue-600 text-white hover:bg-blue-700"
                 : "bg-blue-500 text-white hover:bg-blue-600"
             }`}
+        >
+          Rating {isRatingActive && (sortBy === "ratingAsc" ? "▲" : "▼")}
+        </button> */}
+        <button
+          onClick={handleSortByPrice}
+          className={`
+    py-1 px-4 rounded-xl transition shadow-sm font-semibold
+    ${
+      isPriceActive // When clicked/active
+        ? "bg-blue-900 text-white hover:bg-blue-800 " + // Light mode active state: dark blue bg, white text, slightly darker blue on hover
+          "dark:bg-blue-700 dark:hover:bg-blue-600 dark:text-white" // Dark mode active state: slightly lighter blue bg, white text, darker blue on hover
+        : "bg-gray-200 text-gray-900 hover:bg-gray-300 " + // Light mode inactive state: light gray bg, dark text, slightly darker gray on hover
+          "dark:bg-gray-600 dark:text-gray-100 dark:hover:bg-gray-500" // Dark mode inactive state: dark gray bg, light text, slightly darker gray on hover
+    }`}
+        >
+          Price {isPriceActive && (sortBy === "priceAsc" ? "▲" : "▼")}
+        </button>
+        <button
+          onClick={handleSortByRating}
+          className={`
+    py-1 px-4 rounded-xl transition  shadow-sm font-semibold
+    ${
+      isRatingActive // When clicked/active
+        ? "bg-blue-900 text-white hover:bg-blue-800 " + // Light mode active state
+          "dark:bg-blue-700 dark:hover:bg-blue-600 dark:text-white" // Dark mode active state
+        : "bg-gray-200 text-gray-900 hover:bg-gray-300 " + // Light mode inactive state
+          "dark:bg-gray-600 dark:text-gray-100 dark:hover:bg-gray-500" // Dark mode inactive state
+    }`}
         >
           Rating {isRatingActive && (sortBy === "ratingAsc" ? "▲" : "▼")}
         </button>

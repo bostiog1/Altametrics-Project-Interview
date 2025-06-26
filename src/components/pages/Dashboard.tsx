@@ -61,7 +61,7 @@ const Dashboard: React.FC = () => {
   }, [isSidebarOpen]); // Re-run effect when sidebar's open state changes
 
   return (
-    <div className="flex h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white font-sans">
+    <div className="flex h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-sans">
       {/* Sidebar component */}
       <Sidebar
         isSidebarOpen={isSidebarOpen} // Pass the open state
