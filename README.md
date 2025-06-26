@@ -2,6 +2,8 @@
 
 ## Overview
 
+Live website: **https://amazing-cat-128e36.netlify.app/dashboard**
+
 This project was developed as a technical assessment, focusing on building a responsive e-commerce application. The core objective was to demonstrate proficiency in modern front-end development, including state management, API integration, and responsive UI design.
 
 The application leverages **React**, **TypeScript**, **Vite**, and **Tailwind CSS** for a fast and efficient front-end development experience, coupled with **Redux Toolkit** for robust global state management. It integrates with the [Fake Store API](https://fakestoreapi.com) to fetch and display product data, provide user authentication, and offer a dynamic product Browse experience.
