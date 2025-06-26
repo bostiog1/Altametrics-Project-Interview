@@ -1,25 +1,18 @@
-// src/components/ProductCard.tsx
-import React from "react";
 import { Link } from "react-router-dom";
-import type { Product, UserRatings } from "../types"; // NEW: Import UserRatings
-import { useAppDispatch } from "../store/hooks";
-import useLocalStorage from "../hooks/useLocalStorage"; // NEW: Import useLocalStorage hook
-import StarRating from "./StarRating"; // NEW: Import StarRating component
+import type { Product, UserRatings } from "../types";
+import useLocalStorage from "../hooks/useLocalStorage";
+import StarRating from "./StarRating";
 
 interface ProductCardProps {
   product: Product;
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const dispatch = useAppDispatch();
-  // NEW: State for user-assigned ratings
-  // The key 'userRatings' should be consistent across components that use it
   const [userRatings, setUserRatings] = useLocalStorage<UserRatings>(
     "userRatings",
     {}
   );
 
-  // NEW: Handle user assigning a rating
   const handleUserRatingChange = (newRating: number) => {
     setUserRatings((prevRatings) => ({
       ...prevRatings,
@@ -27,7 +20,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     }));
   };
 
-  // Determine which rating to display: user's rating if it exists, otherwise API's rating
   const displayRating = userRatings[product.id] || product.rating.rate;
   const displayRatingCount = userRatings[product.id]
     ? "Your rating"
@@ -55,10 +47,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         {product.category}
       </p>
       <div className="mt-auto pt-2 border-t border-gray-200 dark:border-gray-700 flex flex-col items-center">
-        {/* NEW: Display UserRating component */}
         <div className="mb-3 flex items-center space-x-2">
           <StarRating
-            initialRating={userRatings[product.id] || 0} // Use user's rating, or 0 if none
+            initialRating={userRatings[product.id] || 0}
             onRatingChange={handleUserRatingChange}
             size="small"
           />

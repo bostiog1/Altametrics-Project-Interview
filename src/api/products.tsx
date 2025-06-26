@@ -1,6 +1,6 @@
 import axios from "axios";
-import { API_BASE_URL } from "../utils/constants"; // Value import
-import type { Product, ProductCategory } from "../types/index"; // Type-only import
+import { API_BASE_URL } from "../utils/constants";
+import type { Product, ProductCategory } from "../types/index";
 
 export const productsApi = {
   getAllProducts: async (): Promise<Product[]> => {

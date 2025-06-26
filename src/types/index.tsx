@@ -32,8 +32,6 @@ export interface Product {
 
 export type ProductCategory = string;
 
-// --- NEW: User Ratings Type ---
-// A map where key is productId (number) and value is the user's rating (number 1-5)
 export interface UserRatings {
   [productId: number]: number;
 }

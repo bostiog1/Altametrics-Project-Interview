@@ -1,6 +1,6 @@
 interface LoadingSpinnerProps {
   size?: "small" | "medium" | "large";
-  color?: string; // Tailwind color class, e.g., 'text-white', 'text-blue-500'
+  color?: string;
 }
 
 const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({

@@ -1,11 +1,10 @@
-// src/components/StarRating.tsx
 import React, { useState } from "react";
 
 interface StarRatingProps {
-  initialRating?: number; // The current rating to display (e.g., user's previous rating or API's)
-  onRatingChange: (rating: number) => void; // Callback when a new rating is selected
-  readOnly?: boolean; // If true, disables interaction (e.g., for displaying API rating)
-  size?: "small" | "medium" | "large"; // Control star size
+  initialRating?: number;
+  onRatingChange: (rating: number) => void;
+  readOnly?: boolean;
+  size?: "small" | "medium" | "large";
 }
 
 const StarRating: React.FC<StarRatingProps> = ({
@@ -14,7 +13,7 @@ const StarRating: React.FC<StarRatingProps> = ({
   readOnly = false,
   size = "medium",
 }) => {
-  const [hoverRating, setHoverRating] = useState(0); // For hover effect
+  const [hoverRating, setHoverRating] = useState(0);
   const currentRating = hoverRating || initialRating;
 
   const starSizeClass = {
