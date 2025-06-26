@@ -21,12 +21,16 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   };
 
   const displayRating = userRatings[product.id] || product.rating.rate;
-  const displayRatingCount = userRatings[product.id]
-    ? "Your rating"
-    : `${product.rating.count} reviews`;
+
+  const displayedReviewCount =
+    userRatings[product.id] && product.rating.count === 0
+      ? 1
+      : userRatings[product.id] && userRatings[product.id] !== 0
+      ? product.rating.count + 1
+      : product.rating.count;
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden flex flex-col p-4 transform   hover:scale-105 h-full">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden flex flex-col p-4 transform hover:scale-105 h-full">
       <Link
         to={`/dashboard/products/${product.id}`}
         className="flex flex-col flex-grow text-center"
@@ -36,7 +40,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           alt={product.title}
           className="w-full h-48 object-contain mb-4"
         />
-        <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2 min-h-[3rem]">
+
+        <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2 min-h-[3rem] line-clamp-2">
           {product.title}
         </h3>
       </Link>
@@ -47,7 +52,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         {product.category}
       </p>
       <div className="mt-auto pt-2 border-t border-gray-200 dark:border-gray-700 flex flex-col items-center">
-        <div className="mb-3 flex items-center space-x-2">
+        <div className="mb-3 flex items-center space-x-1 flex-wrap justify-center text-center">
           <StarRating
             initialRating={userRatings[product.id] || 0}
             onRatingChange={handleUserRatingChange}
@@ -56,8 +61,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <span className="text-yellow-600 font-bold text-sm">
             ({displayRating.toFixed(1)})
           </span>
-          <span className="text-gray-500 dark:text-gray-400 text-xs">
-            ({displayRatingCount})
+
+          <span className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm whitespace-nowrap">
+            ({displayedReviewCount}{" "}
+            {displayedReviewCount === 1 ? "review" : "reviews"})
           </span>
         </div>
       </div>

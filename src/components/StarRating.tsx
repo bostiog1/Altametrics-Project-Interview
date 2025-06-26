@@ -14,7 +14,8 @@ const StarRating: React.FC<StarRatingProps> = ({
   size = "medium",
 }) => {
   const [hoverRating, setHoverRating] = useState(0);
-  const currentRating = hoverRating || initialRating;
+
+  const displayStarFillRating = hoverRating || initialRating;
 
   const starSizeClass = {
     small: "h-4 w-4",
@@ -24,7 +25,12 @@ const StarRating: React.FC<StarRatingProps> = ({
 
   const handleStarClick = (ratingValue: number) => {
     if (!readOnly) {
-      onRatingChange(ratingValue);
+      if (ratingValue === initialRating) {
+        onRatingChange(0);
+        setHoverRating(0);
+      } else {
+        onRatingChange(ratingValue);
+      }
     }
   };
 
@@ -46,7 +52,9 @@ const StarRating: React.FC<StarRatingProps> = ({
         <svg
           key={starValue}
           className={`${starSizeClass} ${
-            starValue <= currentRating ? "text-yellow-400" : "text-gray-300"
+            starValue <= displayStarFillRating
+              ? "text-yellow-400"
+              : "text-gray-300"
           } ${
             !readOnly ? "cursor-pointer" : ""
           } transition-colors duration-200`}

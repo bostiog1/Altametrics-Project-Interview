@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { fetchProducts, clearProductError } from "./productsSlice"; 
+import { fetchProducts, clearProductError } from "./productsSlice";
 import LoadingSpinner from "../../components/LoadingSpinner";
-import { ProductList } from "./ProductList"; 
+import { ProductList } from "./ProductList";
 
 export const ProductsPage: React.FC = () => {
   const dispatch = useAppDispatch();

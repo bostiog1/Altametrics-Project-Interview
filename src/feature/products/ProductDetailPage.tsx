@@ -82,9 +82,13 @@ export const ProductDetailPage: React.FC = () => {
 
   const displayRatingValue =
     currentUserRating || (selectedProduct ? selectedProduct.rating.rate : 0);
-  const displayRatingCount = currentUserRating
-    ? "Your rating"
-    : `${selectedProduct!.rating.count} reviews`;
+
+  const displayedReviewCount =
+    currentUserRating && selectedProduct.rating.count === 0
+      ? 1
+      : currentUserRating && currentUserRating !== 0
+      ? selectedProduct.rating.count + 1
+      : selectedProduct.rating.count;
 
   return (
     <div className="container mx-auto p-6 bg-white dark:bg-gray-900 rounded-lg shadow-2xl my-8 max-w-4xl">
@@ -131,8 +135,10 @@ export const ProductDetailPage: React.FC = () => {
             <span className="text-yellow-600 font-bold text-lg">
               ({displayRatingValue.toFixed(1)})
             </span>
-            <span className="text-gray-500 dark:text-gray-400 text-sm">
-              ({displayRatingCount})
+
+            <span className="text-gray-500 dark:text-gray-400 text-sm whitespace-nowrap">
+              ({displayedReviewCount}{" "}
+              {displayedReviewCount === 1 ? "review" : "reviews"})
             </span>
           </div>
         </div>
