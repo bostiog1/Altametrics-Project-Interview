@@ -36,7 +36,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col p-4 transform transition duration-300 hover:scale-105 h-full">
       <Link
-        to={`/products/${product.id}`}
+        to={`/dashboard/products/${product.id}`}
         className="flex flex-col flex-grow text-center"
       >
         <img
