@@ -3,10 +3,9 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 import Dashboard from "../components/pages/Dashboard";
 import { LoginPage } from "../feature/auth/AuthViews";
-import {
-  ProductDetailPage,
-  ProductsPage,
-} from "../feature/products/ProductViews";
+import ProductsPage from "../feature/products/ProductsPage";
+import ProductDetailPage from "../feature/products/ProductDetailPage";
+
 export const AppRoutes: React.FC = () => {
   const routes = useMemo(
     () => [
