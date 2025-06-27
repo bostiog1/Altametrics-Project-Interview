@@ -2,7 +2,7 @@
 
 ## Overview
 
-Live website: **https://amazing-cat-128e36.netlify.app/dashboard**
+Live website: **https://amazing-cat-128e36.netlify.app/**
 
 This project was developed as a technical assessment, focusing on building a responsive e-commerce application. The core objective was to demonstrate proficiency in modern front-end development, including state management, API integration, and responsive UI design.
 
