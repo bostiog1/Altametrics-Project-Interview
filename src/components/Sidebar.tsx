@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import type { RefObject } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
 import {
   fetchCategories,
   setCategoryFilter,
-} from "../../feature/products/productsSlice";
-import { logout } from "../../feature/auth/authSlice";
+} from "../features/products/productsSlice";
+import { logout } from "../features/auth/authSlice";
 
 import {
   FaTimes,

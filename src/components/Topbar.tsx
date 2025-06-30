@@ -1,9 +1,9 @@
 import type { RefObject } from "react";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { setSortBy } from "../../feature/products/productsSlice";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { setSortBy } from "../features/products/productsSlice";
 
 import { FaBars, FaSearch } from "react-icons/fa";
-import DarkMode from "../DarkMode";
+import DarkMode from "./DarkMode";
 
 interface TopbarProps {
   toggleSidebar: () => void;

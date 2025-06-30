@@ -1,10 +1,10 @@
 import React, { useMemo } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
-import Dashboard from "../components/pages/Dashboard";
-import { LoginPage } from "../feature/auth/AuthViews";
-import ProductsPage from "../feature/products/ProductsPage";
-import ProductDetailPage from "../feature/products/ProductDetailPage";
+import Dashboard from "../components/Dashboard";
+import { LoginPage } from "../features/auth/AuthViews";
+import ProductsPage from "../features/products/ProductsPage";
+import ProductDetailPage from "../features/products/ProductDetailPage";
 
 export const AppRoutes: React.FC = () => {
   const routes = useMemo(
