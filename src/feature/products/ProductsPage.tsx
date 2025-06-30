@@ -46,7 +46,7 @@ export const ProductsPage: React.FC = () => {
   }
 
   return (
-    <div className="p-4">
+    <div className="p-2">
       <ProductList products={filteredProducts} />
     </div>
   );

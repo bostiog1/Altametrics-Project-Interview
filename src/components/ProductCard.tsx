@@ -30,7 +30,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       : product.rating.count;
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden flex flex-col p-4 transform hover:scale-105 h-full">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden flex flex-col p-3 transform hover:scale-105 h-full">
       <Link
         to={`/dashboard/products/${product.id}`}
         className="flex flex-col flex-grow text-center"
